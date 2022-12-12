@@ -39,6 +39,7 @@
                     width="100%"
                     dataContainer="clientsDc">
             <actions>
+                <action id="requestLoan" caption="Request loan" />
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
@@ -53,6 +54,7 @@
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
+                <button id="requestLoanBtn" action="clientsTable.requestLoan" />
                 <button id="createBtn" action="clientsTable.create"/>
                 <button id="editBtn" action="clientsTable.edit"/>
                 <button id="removeBtn" action="clientsTable.remove"/>
