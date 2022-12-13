@@ -35,7 +35,7 @@ public class Loan {
     private LocalDate requestDate;
 
     @Column(name = "STATUS")
-    private String status;
+    private Integer status;
 
     public LoanStatus getStatus() {
         return status == null ? null : LoanStatus.fromId(status);

@@ -5,24 +5,24 @@ import io.jmix.core.metamodel.datatype.impl.EnumClass;
 import javax.annotation.Nullable;
 
 
-public enum LoanStatus implements EnumClass<String> {
+public enum LoanStatus implements EnumClass<Integer> {
 
-    REQUESTED("R"),
-    APPROVED("A"),
-    REJECTED("J");
+    REQUESTED(10),
+    APPROVED(20),
+    REJECTED(30);
 
-    private String id;
+    private Integer id;
 
-    LoanStatus(String value) {
+    LoanStatus(Integer value) {
         this.id = value;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     @Nullable
-    public static LoanStatus fromId(String id) {
+    public static LoanStatus fromId(Integer id) {
         for (LoanStatus at : LoanStatus.values()) {
             if (at.getId().equals(id)) {
                 return at;
