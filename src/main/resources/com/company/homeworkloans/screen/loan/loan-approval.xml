@@ -50,6 +50,17 @@
                     width="100%"
                     dataContainer="loansDc">
             <actions>
+                <action id="approve"
+                        caption="Approve"
+                        icon="OK"
+                        primary="true"
+                        type="itemTracking"
+                />
+                <action id="reject"
+                        caption="Reject"
+                        icon="CANCEL"
+                        type="itemTracking"
+                />
             </actions>
             <columns>
                 <group>
@@ -66,6 +77,8 @@
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
+                <button id="approveBtn" action="loansTable.approve"/>
+                <button id="rejectBtn" action="loansTable.reject"/>
             </buttonsPanel>
         </groupTable>
         <table id="previousLoans" height="200px" width="100%" dataContainer="previousLoansDc" caption="Previous Loans">

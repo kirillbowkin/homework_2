@@ -24,4 +24,14 @@ public class LoanService {
         loan.setStatus(LoanStatus.REQUESTED);
         dataManager.save(loan);
     }
+
+    public void acceptLoan(Loan loan) {
+        loan.setStatus(LoanStatus.APPROVED);
+        dataManager.save(loan);
+    }
+
+    public void rejectLoan(Loan loan) {
+        loan.setStatus(LoanStatus.REJECTED);
+        dataManager.save(loan);
+    }
 }
