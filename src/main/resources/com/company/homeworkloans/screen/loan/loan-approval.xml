@@ -3,8 +3,7 @@
         caption="msg://loanApproval.caption"
         focusComponent="loansTable">
     <data readOnly="true">
-        <collection id="loansDc"
-                    class="com.company.homeworkloans.entity.Loan">
+        <collection id="loansDc" class="com.company.homeworkloans.entity.Loan">
             <fetchPlan extends="_base">
                 <property name="client" fetchPlan="_base"/>
             </fetchPlan>
@@ -12,6 +11,16 @@
                 <query>
                     <![CDATA[select e from Loan e
                     where e.status = 10]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="previousLoansDc" class="com.company.homeworkloans.entity.Loan">
+            <fetchPlan extends="_base"/>
+            <loader id="previousLoansDl">
+                <query>
+                    <![CDATA[select e from Loan e
+                    where e.client = :client
+                    and e.id <> :id]]>
                 </query>
             </loader>
         </collection>
@@ -44,14 +53,14 @@
             </actions>
             <columns>
                 <group>
-                    <column id="requestDate" />
+                    <column id="requestDate"/>
                 </group>
                 <column id="requestDate"/>
                 <column id="amount"/>
                 <column id="client"/>
-                <column id="client.phoneNumber" />
-                <column id="client.salary" />
-                <column id="age" caption="Age" />
+                <column id="client.phoneNumber"/>
+                <column id="client.salary"/>
+                <column id="age" caption="Age"/>
                 <column id="status"/>
             </columns>
             <simplePagination/>
@@ -59,6 +68,13 @@
                           alwaysVisible="true">
             </buttonsPanel>
         </groupTable>
+        <table id="previousLoans" height="200px" width="100%" dataContainer="previousLoansDc" caption="Previous Loans">
+            <columns>
+                <column id="amount"/>
+                <column id="requestDate"/>
+                <column id="status"/>
+            </columns>
+        </table>
         <hbox id="lookupActions" spacing="true" visible="false">
             <button action="lookupSelectAction"/>
             <button action="lookupCancelAction"/>
